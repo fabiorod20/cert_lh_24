@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: sap
+    description: Adventure Works sap tables.
+    database: cert_lh_24
+    schema: sap_adw
+    tables:
+      
+      - name: salesperson
+        description: Table with information about the seller/seller who made the sale.
+        columns:
+          - name: businessentityid
+            description: Primary key of the salesperson table.
+            tests:
+              - unique
+              - not_null
