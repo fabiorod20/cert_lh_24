@@ -15,3 +15,31 @@ sources:
             tests:
               - unique
               - not_null
+      
+      - name: businessentity
+        description: a
+        columns:
+          - name: businessentityid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: person
+        description: a
+        columns:
+          - name: businessentityid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: employee
+        description: a
+        columns:
+          - name: businessentityid
+            description: a
+            tests:
+              - unique
+              - not_null
+              
