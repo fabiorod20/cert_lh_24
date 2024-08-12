@@ -1,7 +1,7 @@
 with
     rennamed as (
         select
-            cast(businessentityid as int) as bid_sales_person
+            cast(businessentityid as int) as pk_sales_person
             , cast(territoryid as int) as territory_id
             , cast(salesquota as int) as sales_quota
             , cast(bonus as int) as bonus_sales_person
