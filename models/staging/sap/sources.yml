@@ -1,0 +1,175 @@
+version: 2
+
+sources:
+  - name: sap
+    description: Adventure Works sap tables.
+    database: cert_lh_24
+    schema: sap_adw
+    tables:
+      
+      - name: salesperson
+        description: Table with information about the seller/seller who made the sale.
+        columns:
+          - name: businessentityid
+            description: Primary key of the salesperson table.
+            tests:
+              - unique
+              - not_null
+      
+      - name: businessentity
+        description: a
+        columns:
+          - name: businessentityid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: person
+        description: a
+        columns:
+          - name: businessentityid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: employee
+        description: a
+        columns:
+          - name: businessentityid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: address
+        description: a
+        columns:
+          - name: addressid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: stateprovince
+        description: a
+        columns:
+          - name: stateprovinceid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: countryregion
+        description: a
+        columns:
+          - name: countryregioncode
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: store
+        description: a
+        columns:
+          - name: businessentityid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: customer
+        description: a
+        columns:
+          - name: customerid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: salesterritory
+        description: a
+        columns:
+          - name: territoryid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: personcreditcard
+        description: a
+        columns:
+          - name: businessentityid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: creditcard
+        description: a
+        columns:
+          - name: creditcardid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: salesorderheader
+        description: a
+        columns:
+          - name: salesorderid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: salesorderheadersalesreason
+        description: a
+
+      - name: salesreason
+        description: a
+        columns:
+          - name: salesreasonid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: salesorderdetail
+        description: a
+        columns:
+          - name: salesorderdetailid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: product
+        description: a
+        columns:
+          - name: productid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: productsubcategory
+        description: a
+        columns:
+          - name: productsubcategoryid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: productcategory
+        description: a
+        columns:
+          - name: productcategoryid
+            description: a
+            tests:
+              - unique
+              - not_null
+                  
+              
