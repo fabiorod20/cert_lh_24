@@ -2,7 +2,7 @@ with
     rennamed as (
         select
             cast(businessentityid as int) as pk_sales_person
-            , cast(territoryid as int) as territory_id
+            , cast(territoryid as int) as fk_territory
             , cast(salesquota as int) as sales_quota
             , cast(bonus as int) as bonus_sales_person
             , cast(commissionpct as float) as commission_pct_sales_person
