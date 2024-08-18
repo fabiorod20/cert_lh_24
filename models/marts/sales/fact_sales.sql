@@ -78,7 +78,10 @@ with
             , int_reasons.eh_type_marketing
             , int_reasons.eh_type_other
             , dim_customers.customer_name
-            , dim_customers.store_customer
+            , dim_customers.customer_email
+            , dim_customers.costumer_phone_number
+            , dim_customers.costumer_phone_number_type
+            , dim_customers.customer_store
             , dim_credit_cards.person_credit_card_name
             , dim_credit_cards.credit_card_type
             , dim_locations.city_name

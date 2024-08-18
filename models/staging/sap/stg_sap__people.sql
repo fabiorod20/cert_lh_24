@@ -17,7 +17,7 @@ with
         from {{ source('sap', 'person') }}
     )
     
-, fullname as (
+, full_name as (
         select
             pk_person
             , first_name || ' ' || middle_name || ' ' || last_name || ' ' || suffix as person_name
@@ -25,4 +25,4 @@ with
     )  
 
 select *
-from fullname
+from full_name

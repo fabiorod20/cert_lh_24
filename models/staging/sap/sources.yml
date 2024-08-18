@@ -171,5 +171,32 @@ sources:
             tests:
               - unique
               - not_null
+          
+      - name: phonenumbertype
+        description: a
+        columns:
+          - name: phonenumbertypeid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: emailaddress
+        description: a
+        columns:
+          - name: emailaddressid
+            description: a
+            tests:
+              - unique
+              - not_null
+
+      - name: personphone
+        description: a
+        columns:
+          - name: businessentityid
+            description: a
+            tests:
+              - unique
+              - not_null
                   
               

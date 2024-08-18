@@ -4,9 +4,9 @@ with
         from {{ ref('stg_sap__employees') }}
     )
 
-    , stg_people as (
+    , int_people as (
         select *
-        from {{ ref('stg_sap__people') }}
+        from {{ ref('int_people') }}
     )
 
     , stg_territories as (
@@ -22,10 +22,10 @@ with
     , join_employees as (
         select
             stg_employees.*
-            , stg_people.person_name as employee_name
+            , int_people.person_name as employee_name
         from stg_employees
-        left join stg_people
-            on stg_employees.pk_employee = stg_people.pk_person
+        left join int_people
+            on stg_employees.pk_employee = int_people.pk_person
     )
 
     , join_sales_people as (
