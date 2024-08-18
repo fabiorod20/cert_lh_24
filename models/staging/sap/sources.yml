@@ -8,7 +8,7 @@ sources:
     tables:
       
       - name: salesperson
-        description: Table with information about the seller/seller who made the sale.
+        description: Table with information about the seller who made the sale.
         columns:
           - name: businessentityid
             description: Primary key of the salesperson table.

@@ -18,7 +18,7 @@ with
         select
             stg_costumers.*
             , stg_people.person_name as customer_name
-            , stg_stores.store_name as customer_store
+            , stg_stores.store_name as store_customer
         from stg_costumers
         left join stg_people
             on stg_costumers.fk_person = stg_people.pk_person
