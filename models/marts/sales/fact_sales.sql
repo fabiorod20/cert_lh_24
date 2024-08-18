@@ -39,7 +39,7 @@ with
             int_sales.pk_sales_order_detail
             , int_sales.fk_sales_order
             , int_sales.fk_customer
-            , int_sales.fk_territory
+            , dim_sales_people.fk_territory
             , int_sales.fk_address_ship
             , dim_locations.fk_state_province
             , dim_locations.fk_country_region
