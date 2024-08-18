@@ -4,9 +4,9 @@ with
         from {{ ref('stg_sap__people_credit_cards') }}
     )
 
-    , stg_people as (
+    , int_people as (
         select *
-        from {{ ref('stg_sap__people') }}
+        from {{ ref('int_people') }}
     )
 
     , stg_credit_cards as (
@@ -17,10 +17,10 @@ with
     , join_people_credit_cards as (
         select
             stg_people_credit_cards.*
-            , stg_people.person_name as person_credit_card_name
+            , int_people.person_name as person_credit_card_name
         from stg_people_credit_cards
-        left join stg_people
-            on stg_people_credit_cards.pk_person_credit_card = stg_people.pk_person
+        left join int_people
+            on stg_people_credit_cards.pk_person_credit_card = int_people.pk_person
     )
 
     , join_credit_card as (

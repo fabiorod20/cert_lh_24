@@ -4,9 +4,9 @@ with
         from {{ ref('stg_sap__customers') }}
     )
 
-    , stg_people as (
+    , int_people as (
         select *
-        from {{ ref('stg_sap__people') }}
+        from {{ ref('int_people') }}
     )
 
     , stg_stores as (
@@ -17,11 +17,14 @@ with
     , join_customers as (
         select
             stg_costumers.*
-            , stg_people.person_name as customer_name
+            , int_people.person_name as customer_name
+            , int_people.email_address as customer_email
+            , int_people.phone_number as costumer_phone_number
+            , int_people.phone_number_type as costumer_phone_number_type
             , stg_stores.store_name as customer_store
         from stg_costumers
-        left join stg_people
-            on stg_costumers.fk_person = stg_people.pk_person
+        left join int_people
+            on stg_costumers.fk_person = int_people.pk_person
         left join stg_stores
             on stg_costumers.fk_store = stg_stores.pk_store
     )
