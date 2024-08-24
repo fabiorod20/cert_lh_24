@@ -4,18 +4,9 @@ with
         from {{ ref('fact_sales') }}
     )
 
-    , agg_sales_person as (
+    , agg_sales_month as (
         select
-            fact_sales.fk_sales_person
-            , fact_sales.name_sales_person
-            , fact_sales.job_title_sales_person
-            , fact_sales.gender_sales_person
-            , fact_sales.eh_employee_sales_person
-            , fact_sales.sales_quota
-            , fact_sales.bonus_sales_person
-            , fact_sales.commission_pct_sales_person
-            , fact_sales.sales_ytd_sales_person
-            , fact_sales.sales_last_year_sales_person
+            date_trunc('month', fact_sales.dt_order) as sale_month
             , round(avg(fact_sales.product_qty), 2) as avg_product_qty
             , round(avg(fact_sales.unit_price), 2) as avg_unit_price
             , round(avg(fact_sales.unit_price_discount), 2) as avg_unit_price_discount
@@ -32,18 +23,19 @@ with
             , round(sum(fact_sales.order_total), 2) as sum_order_total
         from fact_sales
         group by
-            fact_sales.fk_sales_person
-            , fact_sales.name_sales_person
-            , fact_sales.job_title_sales_person
-            , fact_sales.gender_sales_person
-            , fact_sales.eh_employee_sales_person
-            , fact_sales.sales_quota
-            , fact_sales.bonus_sales_person
-            , fact_sales.commission_pct_sales_person
-            , fact_sales.sales_ytd_sales_person
-            , fact_sales.sales_last_year_sales_person
+            date_trunc('month', fact_sales.dt_order)
+    )
+
+    , moving_avg as (
+        select
+            *
+            , round(avg(sum_order_total) over (
+                order by sale_month
+                rows between 2 preceding and current row
+            ), 2) as moving_avg_3_months_order_total
+        from agg_sales_month
+        order by sale_month
     )
 
 select *
-from agg_sales_person
-where fk_sales_person is not null
+from moving_avg

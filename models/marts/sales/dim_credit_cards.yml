@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dim_credit_cards
+    description: This dimension includes detailed information about credit cards and their association with people.
+    columns:
+      - name: pk_credit_card
+        description: Unique identifier for the credit card.
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_person_credit_card
+        description: Foreign key linking to the person_credit_card record, representing the association between the credit card and the individual.
+
+      - name: person_credit_card_name
+        description: Name of the person associated with the credit card.
+
+      - name: credit_card_type
+        description: Type of the credit card (e.g., Visa, MasterCard).

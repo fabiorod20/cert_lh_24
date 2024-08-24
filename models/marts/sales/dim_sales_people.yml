@@ -1,0 +1,73 @@
+version: 2
+
+models:
+  - name: dim_sales_people
+    description: This dimension includes detailed information about sales people, including their personal details, sales performance, and associated territories.
+    columns:
+      - name: pk_sales_person
+        description: Unique identifier for the sales person.
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_territory
+        description: Foreign key linking to the sales territory record.
+
+
+      - name: dt_birth_sales_person
+        description: Birthdate of the sales person.
+
+
+      - name: dt_hire_sales_person
+        description: Hire date of the sales person.
+
+      - name: name_sales_person
+        description: Name of the sales person.
+
+
+      - name: job_title_sales_person
+        description: Job title of the sales person.
+
+
+      - name: gender_sales_person
+        description: Gender of the sales person.
+
+
+      - name: eh_employee_sales_person
+        description: Indicates if the sales person is an employee (e.g., "yes" or "no").
+
+
+      - name: sales_quota
+        description: Sales quota assigned to the sales person.
+
+
+      - name: bonus_sales_person
+        description: Bonus amount received by the sales person.
+
+
+      - name: commission_pct_sales_person
+        description: Commission percentage earned by the sales person.
+
+
+      - name: sales_ytd_sales_person
+        description: Year-to-date sales amount for the sales person.
+
+
+      - name: sales_last_year_sales_person
+        description: Sales amount for the sales person from the previous year.
+
+
+      - name: territory_name
+        description: Name of the sales territory associated with the sales person.
+
+
+      - name: territory_group_name
+        description: Name of the sales territory group associated with the sales person.
+
+
+      - name: territory_sales_ytd
+        description: Year-to-date sales amount for the sales territory.
+
+
+      - name: territory_sales_last_year
+        description: Sales amount for the sales territory from the previous year.

@@ -1,0 +1,209 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: This fact table is a one big table with a lot of details on sales transactions, including information on customers, products, sales people, credit cards, and locations.
+    columns:
+      - name: pk_sales_order_detail
+        description: Unique identifier for the sales order detail.
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_sales_order
+        description: Foreign key linking to the sales order header record. Represents the sales order associated with the detail.
+
+      - name: fk_customer
+        description: Foreign key linking to the customer record. Represents the customer associated with the sales order.
+
+      - name: fk_territory
+        description: Foreign key linking to the sales territory record. Represents the territory associated with the sales order.
+
+      - name: fk_address_ship
+        description: Foreign key linking to the address record. Represents the shipping address for the sales order.
+
+      - name: fk_country_region
+        description: Foreign key linking to the country region record. Represents the country region associated with the sales order location.
+
+      - name: fk_state_province
+        description: Foreign key linking to the state province record. Represents the state or province associated with the sales order location.
+
+      - name: fk_credit_card
+        description: Foreign key linking to the credit card record used for the sales order payment.
+
+      - name: fk_sales_reason
+        description: Foreign key linking to the sales reason record. Represents the reason associated with the sales order.
+
+      - name: fk_store
+        description: Foreign key linking to the store record. Represents the store associated with the customer.
+
+      - name: fk_person_credit_card
+        description: Foreign key linking to the person credit card record. Represents the person associated with the credit card.
+
+      - name: fk_product
+        description: Foreign key linking to the product record. Represents the product included in the sales order detail.
+
+      - name: fk_sales_person
+        description: Foreign key linking to the sales person record. Represents the sales person responsible for the sales order.
+
+      - name: dt_order
+        description: Date when the sales order was placed.
+
+      - name: dt_ship
+        description: Date when the sales order was shipped.
+
+      - name: dt_due
+        description: Date when the sales order is due.
+
+      - name: dt_birth_sales_person
+        description: Date of birth of the sales person.
+
+      - name: dt_hire_sales_person
+        description: Date when the sales person was hired.
+
+      - name: order_status
+        description: Current status of the sales order.
+
+      - name: product_qty
+        description: Quantity of the product included in the sales order detail.
+
+      - name: unit_price
+        description: Unit price of the product in the sales order detail.
+
+      - name: unit_price_discount
+        description: Discount applied to the unit price of the product.
+
+      - name: eh_order_online
+        description: Indicates if the order was placed online.
+
+      - name: order_sub_total
+        description: Subtotal of the sales order before tax and shipping.
+
+      - name: order_taxa_mt
+        description: Tax amount applied to the sales order.
+
+      - name: order_freight
+        description: Freight cost associated with the sales order.
+
+      - name: order_total
+        description: Total amount of the sales order, including tax and freight.
+
+      - name: sales_reason_name
+        description: Name of the reason associated with the sales order.
+
+      - name: sales_reason_type
+        description: Type of the reason associated with the sales order (e.g., price, quality).
+
+      - name: eh_price
+        description: Indicates if the sales reason involves price.
+
+      - name: eh_manufacturer
+        description: Indicates if the sales reason involves the manufacturer.
+
+      - name: eh_quality
+        description: Indicates if the sales reason involves quality.
+
+      - name: eh_on_promotion
+        description: Indicates if the sales reason involves a promotion.
+
+      - name: eh_review
+        description: Indicates if the sales reason involves a review.
+
+      - name: eh_television_advertisement
+        description: Indicates if the sales reason involves a television advertisement.
+
+      - name: eh_other
+        description: Indicates if the sales reason involves something else.
+
+      - name: eh_type_promotion
+        description: Indicates if the sales reason type is a promotion.
+
+      - name: eh_type_marketing
+        description: Indicates if the sales reason type is marketing.
+
+      - name: eh_type_other
+        description: Indicates if the sales reason type is other.
+
+      - name: customer_name
+        description: Name of the customer associated with the sales order.
+
+      - name: customer_email
+        description: Email address of the customer.
+
+      - name: costumer_phone_number
+        description: Phone number of the customer.
+
+      - name: costumer_phone_number_type
+        description: Type of the phone number of the customer.
+
+      - name: customer_store
+        description: Store associated with the customer.
+
+      - name: person_credit_card_name
+        description: Name of the person associated with the credit card.
+
+      - name: credit_card_type
+        description: Type of the credit card (e.g., Visa, MasterCard).
+
+      - name: city_name
+        description: City where the sales order was shipped.
+
+      - name: state_province_name
+        description: State or province where the sales order was shipped.
+
+      - name: country_name
+        description: Country where the sales order was shipped.
+
+      - name: distribution_center
+        description: Distribution center based on the country region of the sales order.
+
+      - name: spatial_location
+        description: Spatial location of the address associated with the sales order.
+
+      - name: product_name
+        description: Name of the product in the sales order detail.
+
+      - name: product_sub_category_name
+        description: Sub-category name of the product.
+
+      - name: product_category_name
+        description: Category name of the product.
+
+      - name: name_sales_person
+        description: Name of the sales person responsible for the sales order.
+
+      - name: job_title_sales_person
+        description: Job title of the sales person.
+
+      - name: gender_sales_person
+        description: Gender of the sales person.
+
+      - name: eh_employee_sales_person
+        description: Indicates if the sales person is an employee.
+
+      - name: sales_quota
+        description: Sales quota assigned to the sales person.
+
+      - name: bonus_sales_person
+        description: Bonus amount received by the sales person.
+
+      - name: commission_pct_sales_person
+        description: Commission percentage for the sales person.
+
+      - name: sales_ytd_sales_person
+        description: Year-to-date sales amount for the sales person.
+
+      - name: sales_last_year_sales_person
+        description: Sales amount for the previous year for the sales person.
+
+      - name: territory_name
+        description: Name of the sales territory associated with the sales person.
+
+      - name: territory_group_name
+        description: Group name of the sales territory.
+
+      - name: territory_sales_ytd
+        description: Year-to-date sales amount for the sales territory.
+
+      - name: territory_sales_last_year
+        description: Sales amount for the previous year for the sales territory.

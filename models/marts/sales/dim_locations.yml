@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_locations
+    description: This dimension includes detailed information about locations, including addresses, state provinces, and countries. It also calculates a distribution center based on the location's country.
+    columns:
+      - name: pk_address
+        description: Unique identifier for the address.
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_state_province
+        description: Foreign key linking to the state province record.
+
+      - name: fk_country_region
+        description: Foreign key linking to the country region record.
+
+      - name: fk_territory
+        description: Foreign key linking to the territory record.
+
+      - name: city_name
+        description: Name of the city associated with the address.
+
+      - name: state_province_name
+        description: Name of the state or province associated with the address.
+
+      - name: country_name
+        description: Name of the country associated with the address.
+
+      - name: spatial_location
+        description: Geographical coordinates or spatial description of the address.
+
+      - name: distribution_center
+        description: Calculated distribution center name, which is the state province name if the country is the US, otherwise the country name.
+        

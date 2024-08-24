@@ -61,10 +61,10 @@ with
             , int_sales.unit_price
             , int_sales.unit_price_discount
             , int_sales.eh_order_online
-            , int_sales.order_sub_total
-            , int_sales.order_taxa_mt
-            , int_sales.order_freight
-            , int_sales.order_total
+            , round(int_sales.order_sub_total, 2) as order_sub_total
+            , round(int_sales.order_taxa_mt, 2) as order_taxa_mt
+            , round(int_sales.order_freight, 2) as order_freight
+            , round(int_sales.order_total, 2) as order_total
             , int_reasons.sales_reason_name
             , int_reasons.sales_reason_type
             , int_reasons.eh_price
@@ -99,12 +99,12 @@ with
             , dim_sales_people.sales_quota
             , dim_sales_people.bonus_sales_person
             , dim_sales_people.commission_pct_sales_person
-            , dim_sales_people.sales_ytd_sales_person
-            , dim_sales_people.sales_last_year_sales_person
+            , round(dim_sales_people.sales_ytd_sales_person, 2) as sales_ytd_sales_person
+            , round(dim_sales_people.sales_last_year_sales_person, 2) as sales_last_year_sales_person
             , dim_sales_people.territory_name
             , dim_sales_people.territory_group_name
-            , dim_sales_people.territory_sales_ytd
-            , dim_sales_people.territory_sales_last_year
+            , round(dim_sales_people.territory_sales_ytd, 2) as territory_sales_ytd
+            , round(dim_sales_people.territory_sales_last_year, 2) as territory_sales_last_year
         from int_sales
         left join int_reasons
             on int_sales.fk_sales_order = int_reasons.fk_sales_order

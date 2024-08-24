@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: int_people
+    description: This integrated table provides detailed information about people, including their names, email addresses, phone numbers, and phone number types.
+    columns:
+      - name: pk_person
+        description: Unique identifier for the person.
+        tests:
+          - unique
+          - not_null
+
+      - name: person_name
+        description: Name of the person.
+
+      - name: email_address
+        description: Email address of the person.
+
+      - name: phone_number
+        description: Phone number of the person.
+
+      - name: phone_number_type
+        description: Type of phone number.

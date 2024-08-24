@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: agg_sales_territories
+    description: This table aggregates sales metrics by sales territory, including averages and sums of key sales indicators.
+    columns:
+      - name: fk_territory
+        description: Unique identifier for the sales territory.
+        tests:
+          - not_null
+          - unique
+
+
+      - name: territory_name
+        description: Name of the sales territory.
+
+      - name: territory_group_name
+        description: Name of the sales territory group.
+
+      - name: territory_sales_ytd
+        description: Sales amount year-to-date for the sales territory.
+
+      - name: territory_sales_last_year
+        description: Sales amount for the same period last year for the sales territory.
+
+      - name: avg_product_qty
+        description: Average quantity of products sold in the sales territory.
+
+      - name: avg_unit_price
+        description: Average unit price of products sold in the sales territory.
+
+      - name: avg_unit_price_discount
+        description: Average discount applied to the unit price in the sales territory.
+
+      - name: avg_order_sub_total
+        description: Average subtotal of orders in the sales territory.
+
+      - name: avg_order_taxa_mt
+        description: Average tax amount on orders in the sales territory.
+
+      - name: avg_order_freight
+        description: Average freight cost of orders in the sales territory.
+
+      - name: avg_order_total
+        description: Average total order value in the sales territory.
+
+      - name: sum_product_qty
+        description: Total quantity of products sold in the sales territory.
+
+      - name: sum_unit_price
+        description: Total unit price of products sold in the sales territory.
+
+      - name: sum_unit_price_discount
+        description: Total discount applied to the unit price in the sales territory.
+
+      - name: sum_order_sub_total
+        description: Total subtotal of orders in the sales territory.
+
+      - name: sum_order_taxa_mt
+        description: Total tax amount on orders in the sales territory.
+
+      - name: sum_order_freight
+        description: Total freight cost of orders in the sales territory.
+
+      - name: sum_order_total
+        description: Total value of orders in the sales territory.
