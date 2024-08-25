@@ -60,6 +60,7 @@ with
             , int_sales.product_qty
             , int_sales.unit_price
             , int_sales.unit_price_discount
+            , round(int_sales.product_qty * int_sales.unit_price * (1 - int_sales.unit_price_discount), 2) as final_price
             , int_sales.eh_order_online
             , round(int_sales.order_sub_total, 2) as order_sub_total
             , round(int_sales.order_taxa_mt, 2) as order_taxa_mt

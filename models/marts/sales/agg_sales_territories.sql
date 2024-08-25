@@ -11,20 +11,10 @@ with
             , fact_sales.territory_group_name
             , fact_sales.territory_sales_ytd
             , fact_sales.territory_sales_last_year
-            , round(avg(fact_sales.product_qty), 2) as avg_product_qty
-            , round(avg(fact_sales.unit_price), 2) as avg_unit_price
-            , round(avg(fact_sales.unit_price_discount), 2) as avg_unit_price_discount
-            , round(avg(fact_sales.order_sub_total), 2) as avg_order_sub_total
-            , round(avg(fact_sales.order_taxa_mt), 2) as avg_order_taxa_mt
-            , round(avg(fact_sales.order_freight), 2) as avg_order_freight
-            , round(avg(fact_sales.order_total), 2) as avg_order_total
+            , count (distinct fact_sales.fk_sales_order) as total_orders
+            , round(avg(fact_sales.final_price), 2) as avg_final_price
             , round(sum(fact_sales.product_qty), 2) as sum_product_qty
-            , round(sum(fact_sales.unit_price), 2) as sum_unit_price
-            , round(sum(fact_sales.unit_price_discount), 2) as sum_unit_price_discount
-            , round(sum(fact_sales.order_sub_total), 2) as sum_order_sub_total
-            , round(sum(fact_sales.order_taxa_mt), 2) as sum_order_taxa_mt
-            , round(sum(fact_sales.order_freight), 2) as sum_order_freight
-            , round(sum(fact_sales.order_total), 2) as sum_order_total
+            , round(sum(fact_sales.final_price), 2) as sum_final_price
         from fact_sales
         group by
             fact_sales.fk_territory
