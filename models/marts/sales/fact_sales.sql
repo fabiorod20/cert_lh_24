@@ -4,9 +4,9 @@ with
         from {{ ref('int_sales_order_details') }}
     )
 
-    , int_reasons as (
+    , dim_sales_reasons as (
         select *
-        from {{ ref('int_agg_sales_reasons') }}
+        from {{ ref('dim_sales_reasons') }}
     )
 
     , dim_customers as (
@@ -44,7 +44,7 @@ with
             , dim_locations.fk_state_province
             , dim_locations.fk_country_region
             , int_sales.fk_credit_card
-            , int_reasons.fk_sales_reason
+            , dim_sales_reasons.fk_sales_reason
             , dim_customers.fk_store
             , dim_credit_cards.fk_person_credit_card
             , int_sales.fk_product
@@ -66,18 +66,18 @@ with
             , round(int_sales.order_taxa_mt, 2) as order_taxa_mt
             , round(int_sales.order_freight, 2) as order_freight
             , round(int_sales.order_total, 2) as order_total
-            , int_reasons.sales_reason_name
-            , int_reasons.sales_reason_type
-            , int_reasons.eh_price
-            , int_reasons.eh_manufacturer
-            , int_reasons.eh_quality
-            , int_reasons.eh_on_promotion
-            , int_reasons.eh_review
-            , int_reasons.eh_television_advertisement
-            , int_reasons.eh_other
-            , int_reasons.eh_type_promotion
-            , int_reasons.eh_type_marketing
-            , int_reasons.eh_type_other
+            , dim_sales_reasons.sales_reason_name
+            , dim_sales_reasons.sales_reason_type
+            , dim_sales_reasons.eh_price
+            , dim_sales_reasons.eh_manufacturer
+            , dim_sales_reasons.eh_quality
+            , dim_sales_reasons.eh_on_promotion
+            , dim_sales_reasons.eh_review
+            , dim_sales_reasons.eh_television_advertisement
+            , dim_sales_reasons.eh_other
+            , dim_sales_reasons.eh_type_promotion
+            , dim_sales_reasons.eh_type_marketing
+            , dim_sales_reasons.eh_type_other
             , dim_customers.customer_name
             , dim_customers.customer_email
             , dim_customers.costumer_phone_number
@@ -107,8 +107,8 @@ with
             , round(dim_sales_people.territory_sales_ytd, 2) as territory_sales_ytd
             , round(dim_sales_people.territory_sales_last_year, 2) as territory_sales_last_year
         from int_sales
-        left join int_reasons
-            on int_sales.fk_sales_order = int_reasons.fk_sales_order
+        left join dim_sales_reasons
+            on int_sales.fk_sales_order = dim_sales_reasons.fk_sales_order
         left join dim_customers
             on int_sales.fk_customer = dim_customers.pk_customer
         left join dim_credit_cards

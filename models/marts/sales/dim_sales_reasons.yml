@@ -1,20 +1,62 @@
 version: 2
 
 models:
-  - name: dim_sales_reasons
-    description: This dimension includes detailed information about sales reasons, including their types and associations with sales orders.
+  - name: int_agg_sales_reasons
+    description: This aggregated table combines sales reasons associated with orders and categorizes them into various types for analytical purposes.
     columns:
       - name: fk_sales_order
-        description: Foreign key linking to the sales order record. Represents the sales order associated with the sales reason.
-
+        description: Foreign key linking to the sales order record. Represents the sales order associated with the aggregated sales reasons.
+        tests:
+          - unique
+          - not_null
 
       - name: fk_sales_reason
-        description: Foreign key linking to the sales reason record. Represents the sales reason associated with the sales order.
+        description: Comma-separated list of foreign keys linking to the sales reason records associated with the sales order.
 
 
       - name: sales_reason_name
-        description: Name of the sales reason.
+        description: Comma-separated list of sales reason names associated with the sales order.
 
 
       - name: sales_reason_type
-        description: Type of the sales reason (e.g., discount, promotion).
+        description: Comma-separated list of sales reason types associated with the sales order.
+
+
+      - name: eh_price
+        description: Indicates if any sales reason name contains "Price".
+
+
+      - name: eh_manufacturer
+        description: Indicates if any sales reason name contains "Manufacturer".
+
+
+      - name: eh_quality
+        description: Indicates if any sales reason name contains "Quality".
+
+
+      - name: eh_on_promotion
+        description: Indicates if any sales reason name contains "On Promotion".
+
+
+      - name: eh_review
+        description: Indicates if any sales reason name contains "Review".
+
+
+      - name: eh_other
+        description: Indicates if any sales reason name contains "Other".
+
+
+      - name: eh_television_advertisement
+        description: Indicates if any sales reason name contains "Television Advertisement".
+
+
+      - name: eh_type_other
+        description: Indicates if any sales reason type contains "Other".
+
+
+      - name: eh_type_promotion
+        description: Indicates if any sales reason type contains "Promotion".
+
+
+      - name: eh_type_marketing
+        description: Indicates if any sales reason type contains "Marketing".
