@@ -39,6 +39,11 @@ with
                     then state_province_name
                 else country_name
             end as distribution_center
+            , case
+                when fk_country_region = 'US'
+                    then 'Estados Unidos'
+                else 'Resto do Mundo'
+            end as eh_usa
         from join_locations
     )
 

@@ -95,6 +95,7 @@ with
             , dim_locations.state_province_name
             , dim_locations.country_name
             , dim_locations.distribution_center
+            , dim_locations.eh_usa
             , dim_locations.spatial_location
             , dim_products.product_name
             , dim_products.product_sub_category_name
