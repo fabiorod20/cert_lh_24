@@ -54,6 +54,12 @@ with
             , int_sales.dt_order
             , int_sales.dt_ship
             , int_sales.dt_due
+            , int_sales.day_of_week_name
+            , int_sales.day_of_year
+            , int_sales.week_of_year
+            , int_sales.month_name
+            , int_sales.quarter_of_year
+            , int_sales.year_number
             , dim_sales_people.dt_birth_sales_person
             , dim_sales_people.dt_hire_sales_person
             , int_sales.order_status
