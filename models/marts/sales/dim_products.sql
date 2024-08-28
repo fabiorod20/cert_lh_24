@@ -29,5 +29,12 @@ with
             on stg_subcat.fk_product_category = stg_cat.pk_product_category
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['pk_product'])}} as sk_dim_product
+            , *
+        from join_products
+    )
+
 select *
-from join_products
+from create_sk

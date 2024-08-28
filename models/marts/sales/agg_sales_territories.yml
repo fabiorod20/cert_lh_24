@@ -4,6 +4,12 @@ models:
   - name: agg_sales_territories
     description: This table aggregates sales metrics by sales territory, including averages and sums of key sales indicators.
     columns:
+      - name: sk_agg_sales_territory
+        description: Surrogate key for the agg_sales_territories table.
+        tests:
+          - unique
+          - not_null
+
       - name: fk_territory
         description: Unique identifier for the sales territory.
         tests:

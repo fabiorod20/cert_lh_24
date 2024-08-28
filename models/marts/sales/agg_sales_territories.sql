@@ -24,6 +24,13 @@ with
             , fact_sales.territory_sales_last_year
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['fk_territory'])}} as sk_agg_sales_territory
+            , *
+        from agg_sales_person
+    )
+
 select *
-from agg_sales_person
+from create_sk
 where fk_territory is not null

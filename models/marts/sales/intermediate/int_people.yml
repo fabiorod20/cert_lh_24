@@ -4,6 +4,12 @@ models:
   - name: int_people
     description: This integrated table provides detailed information about people, including their names, email addresses, phone numbers, and phone number types.
     columns:
+      - name: sk_int_person
+        description: Surrogate key for the int_sales_people table.
+        tests:
+          - unique
+          - not_null
+
       - name: pk_person
         description: Unique identifier for the person.
         tests:

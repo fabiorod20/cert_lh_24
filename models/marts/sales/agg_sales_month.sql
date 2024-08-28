@@ -39,6 +39,13 @@ with
         order by sale_month
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['sale_month'])}} as sk_agg_sales_month
+            , *
+        from moving_avg
+    )
+
 select *
-from moving_avg
+from create_sk
 order by sale_month

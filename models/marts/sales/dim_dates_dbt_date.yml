@@ -4,6 +4,12 @@ models:
   - name: dim_dates_dbt_date
     description: This dimension table provides a comprehensive date dimension with various attributes for dates within the specified range. It is generated using the `dbt_date` macro to cover dates from January 1, 2010 to December 31, 2015.
     columns:
+      - name: sk_dim_date
+        description: Surrogate key for the dim_dates_dbt_date table.
+        tests:
+          - unique
+          - not_null
+
       - name: date_day
         description: The actual date value.
         tests:

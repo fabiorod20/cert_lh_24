@@ -4,6 +4,12 @@ models:
   - name: dim_locations
     description: This dimension includes detailed information about locations, including addresses, state provinces, and countries. It also calculates a distribution center based on the location's country.
     columns:
+      - name: sk_dim_location
+        description: Surrogate key for the dim_locations table.
+        tests:
+          - unique
+          - not_null
+
       - name: pk_address
         description: Unique identifier for the address.
         tests:

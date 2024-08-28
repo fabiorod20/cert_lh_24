@@ -1,9 +1,15 @@
 version: 2
 
 models:
-  - name: int_agg_sales_reasons
+  - name: dim_sales_reasons
     description: This aggregated table combines sales reasons associated with orders and categorizes them into various types for analytical purposes.
     columns:
+      - name: sk_dim_sales_reason
+        description: Surrogate key for the dim_sales_reasons table.
+        tests:
+          - unique
+          - not_null
+
       - name: fk_sales_order
         description: Foreign key linking to the sales order record. Represents the sales order associated with the aggregated sales reasons.
         tests:

@@ -4,6 +4,12 @@ models:
   - name: dim_customers
     description: This dimension includes detailed information about customers, their associated people, and the stores they are linked to.
     columns:
+      - name: sk_dim_customer
+        description: Surrogate key for the dim_customers table.
+        tests:
+          - unique
+          - not_null
+
       - name: pk_customer
         description: Unique identifier for the customer.
         tests:

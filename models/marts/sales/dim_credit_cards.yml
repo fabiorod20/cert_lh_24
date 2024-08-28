@@ -4,6 +4,12 @@ models:
   - name: dim_credit_cards
     description: This dimension includes detailed information about credit cards and their association with people.
     columns:
+      - name: sk_dim_credit_card
+        description: Surrogate key for the dim_credit_cards table.
+        tests:
+          - unique
+          - not_null
+
       - name: pk_credit_card
         description: Unique identifier for the credit card.
         tests:

@@ -20,5 +20,12 @@ with
             on stg_order_reasons.fk_sales_reason = stg_reasons.pk_sales_reason
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['fk_sales_order', 'fk_sales_reason'])}} as sk_int_sales_reason
+            , *
+        from join_reasons
+    )
+
 select *
-from join_reasons
+from create_sk

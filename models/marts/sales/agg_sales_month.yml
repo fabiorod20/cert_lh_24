@@ -4,6 +4,12 @@ models:
   - name: agg_sales_month
     description: This aggregated table provides monthly sales metrics, including averages and sums of key sales indicators. It also includes a 3-month moving average for total sales.
     columns:
+      - name: sk_agg_sales_month
+        description: Surrogate key for the agg_sales_month table.
+        tests:
+          - unique
+          - not_null
+
       - name: sale_month
         description: The month of the sales, truncated to the first day of the month.
         tests:

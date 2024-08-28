@@ -47,5 +47,12 @@ with
         from join_locations
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['pk_address'])}} as sk_dim_location
+            , *
+        from create_distributions_center
+    )
+
 select *
-from create_distributions_center
+from create_sk

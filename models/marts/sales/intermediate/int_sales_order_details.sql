@@ -49,5 +49,12 @@ with
             on stg_orders.dt_order = dim_dates.date_day
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['pk_sales_order_detail'])}} as sk_int_sales_order_detail
+            , *
+        from join_order_details
+    )
+
 select *
-from join_order_details
+from create_sk

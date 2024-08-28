@@ -128,5 +128,12 @@ with
             on int_sales.fk_sales_person = dim_sales_people.pk_sales_person
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['pk_sales_order_detail'])}} as sk_fact_sales
+            , *
+        from joined
+    )
+
 select *
-from joined
+from create_sk

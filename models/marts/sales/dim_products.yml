@@ -4,6 +4,12 @@ models:
   - name: dim_products
     description: This dimension includes detailed information about products, including their sub-categories and categories.
     columns:
+      - name: sk_dim_product
+        description: Surrogate key for the dim_products table.
+        tests:
+          - unique
+          - not_null
+
       - name: pk_product
         description: Unique identifier for the product.
         tests:

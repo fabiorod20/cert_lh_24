@@ -4,6 +4,12 @@ models:
   - name: fact_sales
     description: This fact table is a one big table with a lot of details on sales transactions, including information on customers, products, sales people, credit cards, and locations.
     columns:
+      - name: sk_fact_sales
+        description: Surrogate key for the fact_sales table.
+        tests:
+          - unique
+          - not_null
+
       - name: pk_sales_order_detail
         description: Unique identifier for the sales order detail.
         tests:

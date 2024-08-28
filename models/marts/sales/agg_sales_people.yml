@@ -4,6 +4,12 @@ models:
   - name: agg_sales_people
     description: This table provides aggregated sales metrics by salesperson, including averages and sums of key sales indicators.
     columns:
+      - name: sk_agg_sales_person
+        description: Surrogate key for the agg_sales_people table.
+        tests:
+          - unique
+          - not_null
+
       - name: fk_sales_person
         description: Unique identifier for the salesperson.
         tests:

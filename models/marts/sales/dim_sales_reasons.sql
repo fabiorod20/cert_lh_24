@@ -67,5 +67,12 @@ with
         from reasons_columns
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['fk_sales_order'])}} as sk_dim_sales_reason
+            , *
+        from types_columns
+    )
+
 select *
-from types_columns
+from create_sk

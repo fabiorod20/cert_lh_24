@@ -4,6 +4,12 @@ models:
   - name: int_sales_order_details
     description: This integrated table provides detailed information about sales order details, including links to orders, products, customers, and sales personnel.
     columns:
+      - name: sk_int_sales_order_detail
+        description: Surrogate key for the int_sales_order_details table.
+        tests:
+          - unique
+          - not_null
+
       - name: pk_sales_order_detail
         description: Unique identifier for the sales order detail.
         tests:

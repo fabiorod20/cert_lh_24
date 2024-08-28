@@ -4,6 +4,12 @@ models:
   - name: dim_sales_people
     description: This dimension includes detailed information about sales people, including their personal details, sales performance, and associated territories.
     columns:
+      - name: sk_dim_sales_person
+        description: Surrogate key for the dim_sales_people table.
+        tests:
+          - unique
+          - not_null
+
       - name: pk_sales_person
         description: Unique identifier for the sales person.
         tests:
