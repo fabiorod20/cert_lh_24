@@ -72,3 +72,15 @@ models:
 
       - name: order_total
         description: Total amount of the sales order, including tax and freight.
+
+      - name: order_detail_sub_total
+        description: "Subtotal of the order detail calculated as the product quantity multiplied by unit price and adjusted for the unit price discount"
+
+      - name: order_detail_taxa_mt
+        description: "Order tax evenly distributed across the order details"
+
+      - name: order_detail_freight
+        description:  "Freight cost of the order evenly distributed across the order details"
+
+      - name: final_price
+        description: "Final price of the order detail, including subtotal, tax, and freight costs"

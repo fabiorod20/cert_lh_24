@@ -38,4 +38,3 @@ with
 
 select *
 from create_sk
-

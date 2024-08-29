@@ -63,16 +63,32 @@ with
             , dim_sales_people.dt_birth_sales_person
             , dim_sales_people.dt_hire_sales_person
             , int_sales.order_status
-            , int_sales.eh_order_online
-            , dim_sales_reasons.sales_reason_name
+            , case
+                when int_sales.eh_order_online = 'true'
+                    then 'Online'
+                else 'Vendedor'
+            end as eh_order_online
+            , case
+                when dim_sales_reasons.sales_reason_name is null
+                    then 'Não Identificado'
+                else dim_sales_reasons.sales_reason_name
+            end as sales_reason_name
             , dim_sales_reasons.sales_reason_type
             , dim_customers.customer_name
             , dim_customers.customer_email
             , dim_customers.costumer_phone_number
             , dim_customers.costumer_phone_number_type
-            , dim_customers.customer_store
+            , case
+                when dim_customers.customer_store is null
+                    then 'Online'
+                else dim_customers.customer_store
+            end as customer_store
             , dim_credit_cards.person_credit_card_name
-            , dim_credit_cards.credit_card_type
+            , case
+                when dim_credit_cards.credit_card_type is null
+                    then 'Outro'
+                else dim_credit_cards.credit_card_type
+            end as credit_card_type
             , dim_locations.city_name
             , dim_locations.state_province_name
             , dim_locations.country_name
@@ -81,11 +97,19 @@ with
             , dim_products.product_name
             , dim_products.product_sub_category_name
             , dim_products.product_category_name
-            , dim_sales_people.name_sales_person
+            , case
+                when dim_sales_people.name_sales_person is null
+                    then 'Online'
+                else dim_sales_people.name_sales_person
+            end as name_sales_person
             , dim_sales_people.job_title_sales_person
             , dim_sales_people.gender_sales_person
             , dim_sales_people.eh_employee_sales_person
-            , dim_sales_people.territory_name
+            , case
+                when dim_sales_people.territory_name is null
+                    then 'Online'
+                else dim_sales_people.territory_name
+            end as territory_name
             , dim_sales_people.territory_group_name
             , int_sales.product_qty
             , int_sales.unit_price
