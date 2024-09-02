@@ -54,5 +54,12 @@ with
         on stg_sales_people.fk_territory = stg_territories.pk_territory
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['pk_sales_person'])}} as sk_dim_sales_person
+            , *
+        from join_sales_people
+    )
+
 select *
-from join_sales_people
+from create_sk

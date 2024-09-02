@@ -34,5 +34,12 @@ with
         on stg_credit_cards.pk_credit_card = join_people_credit_cards.fk_credit_card
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['pk_credit_card'])}} as sk_dim_credit_card
+            , *
+        from join_credit_card
+    )
+
 select *
-from join_credit_card
+from create_sk

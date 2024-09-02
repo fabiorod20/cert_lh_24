@@ -1,0 +1,113 @@
+version: 2
+
+models:
+  - name: dim_dates_dbt_date
+    description: This dimension table provides a comprehensive date dimension with various attributes for dates within the specified range. It is generated using the `dbt_date` macro to cover dates from January 1, 2010 to December 31, 2015.
+    columns:
+      - name: sk_dim_date
+        description: Surrogate key for the dim_dates_dbt_date table.
+        tests:
+          - unique
+          - not_null
+
+      - name: date_day
+        description: The actual date value.
+        tests:
+          - unique
+          - not_null
+
+      - name: prior_date_day
+        description: The previous date (one day before the current date).
+
+      - name: next_date_day
+        description: The following date (one day after the current date).
+
+      - name: prior_year_date_day
+        description: The same date in the previous year.
+
+      - name: prior_year_over_year_date_day
+        description: The difference between the current date and the same date in the previous year.
+
+      - name: day_of_week
+        description: The day of the week as a number (0 for Sunday, 1 for Monday, etc.).
+
+      - name: day_of_week_iso
+        description: The ISO day of the week (1 for Monday, 7 for Sunday).
+
+      - name: day_of_week_name
+        description: The name of the day of the week (e.g., Monday, Tuesday).
+
+      - name: day_of_week_name_short
+        description: The abbreviated name of the day of the week (e.g., Mon, Tue).
+
+      - name: day_of_month
+        description: The day of the month (1 to 31).
+
+      - name: day_of_year
+        description: The day of the year (1 to 366).
+
+      - name: week_start_date
+        description: The start date of the week for the current date.
+
+      - name: week_end_date
+        description: The end date of the week for the current date.
+
+      - name: prior_year_week_start_date
+        description: The start date of the week in the previous year for the current date.
+
+      - name: prior_year_week_end_date
+        description: The end date of the week in the previous year for the current date.
+
+      - name: week_of_year
+        description: The week number of the year (1 to 52 or 53).
+
+      - name: iso_week_start_date
+        description: The ISO start date of the week for the current date.
+
+      - name: iso_week_end_date
+        description: The ISO end date of the week for the current date.
+
+      - name: prior_year_iso_week
+        description: The ISO week number for the same week in the previous year.
+
+      - name: prior_year_iso_week_of_year
+        description: The ISO week number of the year for the same week in the previous year.
+
+      - name: month_of_year
+        description: The month of the year (1 to 12).
+
+      - name: month_name
+        description: The name of the month (e.g., January, February).
+
+      - name: month_name_short
+        description: The abbreviated name of the month (e.g., Jan, Feb).
+
+      - name: month_start_date
+        description: The start date of the month.
+
+      - name: month_end_date
+        description: The end date of the month.
+
+      - name: prior_year_month_start_date
+        description: The start date of the month in the previous year.
+
+      - name: prior_year_month_end_date
+        description: The end date of the month in the previous year.
+
+      - name: quarter_of_year
+        description: The quarter of the year (1 to 4).
+
+      - name: quarter_start_date
+        description: The start date of the quarter.
+
+      - name: quarter_end_date
+        description: The end date of the quarter.
+
+      - name: year_number
+        description: The year number.
+
+      - name: year_start_date
+        description: The start date of the year.
+
+      - name: year_end_date
+        description: The end date of the year.

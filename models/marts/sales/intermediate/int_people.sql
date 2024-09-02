@@ -35,5 +35,12 @@ with
             on stg_phone.fk_phone_number_type = stg_phone_type.pk_phone_number_type
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['pk_person'])}} as sk_int_person
+            , *
+        from joined
+    )
+
 select *
-from joined
+from create_sk

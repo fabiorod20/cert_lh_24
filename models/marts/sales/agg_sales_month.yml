@@ -1,0 +1,63 @@
+version: 2
+
+models:
+  - name: agg_sales_month
+    description: This aggregated table provides monthly sales metrics, including averages and sums of key sales indicators. It also includes a 3-month moving average for total sales.
+    columns:
+      - name: sk_agg_sales_month
+        description: Surrogate key for the agg_sales_month table.
+        tests:
+          - unique
+          - not_null
+
+      - name: sale_month
+        description: The month of the sales, truncated to the first day of the month.
+        tests:
+          - not_null
+          - unique
+
+      - name: avg_product_qty
+        description: The average quantity of products sold per month.
+
+      - name: avg_unit_price
+        description: The average unit price of products sold per month.
+
+      - name: avg_unit_price_discount
+        description: The average discount applied to the unit price of products sold per month.
+
+      - name: avg_order_sub_total
+        description: The average subtotal of orders per month.
+
+      - name: avg_order_taxa_mt
+        description: The average tax amount on orders per month.
+
+      - name: avg_order_freight
+        description: The average freight cost of orders per month.
+
+      - name: avg_order_total
+        description: The average total value of orders per month.
+
+      - name: sum_product_qty
+        description: The total quantity of products sold per month.
+
+      - name: sum_unit_price
+        description: The total unit price of products sold per month.
+
+      - name: sum_unit_price_discount
+        description: The total discount applied to the unit price of products sold per month.
+
+      - name: sum_order_sub_total
+        description: The total subtotal of orders per month.
+
+      - name: sum_order_taxa_mt
+        description: The total tax amount on orders per month.
+
+      - name: sum_order_freight
+        description: The total freight cost of orders per month.
+
+      - name: sum_order_total
+        description: The total value of orders per month.
+
+      - name: moving_avg_3_months_order_total
+        description: The 3-month moving average of the total order value, calculated as the average of the current month and the previous two months.
+        

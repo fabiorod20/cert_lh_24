@@ -16,20 +16,10 @@ with
             , fact_sales.commission_pct_sales_person
             , fact_sales.sales_ytd_sales_person
             , fact_sales.sales_last_year_sales_person
-            , avg(fact_sales.product_qty) as avg_product_qty
-            , avg(fact_sales.unit_price) as avg_unit_price
-            , avg(fact_sales.unit_price_discount) as avg_unit_price_discount
-            , avg(fact_sales.order_sub_total) as avg_order_sub_total
-            , avg(fact_sales.order_taxa_mt) as avg_order_taxa_mt
-            , avg(fact_sales.order_freight) as avg_order_freight
-            , avg(fact_sales.order_total) as avg_order_total
-            , sum(fact_sales.product_qty) as sum_product_qty
-            , sum(fact_sales.unit_price) as sum_unit_price
-            , sum(fact_sales.unit_price_discount) as sum_unit_price_discount
-            , sum(fact_sales.order_sub_total) as sum_order_sub_total
-            , sum(fact_sales.order_taxa_mt) as sum_order_taxa_mt
-            , sum(fact_sales.order_freight) as sum_order_freight
-            , sum(fact_sales.order_total) as sum_order_total
+            , count (distinct fact_sales.fk_sales_order) as total_orders
+            , round(avg(fact_sales.final_price), 2) as avg_final_price
+            , round(sum(fact_sales.product_qty), 2) as sum_product_qty
+            , round(sum(fact_sales.final_price), 2) as sum_final_price
         from fact_sales
         group by
             fact_sales.fk_sales_person
@@ -44,6 +34,13 @@ with
             , fact_sales.sales_last_year_sales_person
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['fk_sales_person'])}} as sk_agg_sales_person
+            , *
+        from agg_sales_person
+    )
+
 select *
-from agg_sales_person
+from create_sk
 where fk_sales_person is not null

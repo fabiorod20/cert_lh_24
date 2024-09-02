@@ -17,186 +17,184 @@ sources:
               - not_null
       
       - name: businessentity
-        description: a
+        description: Table that holds general information about entities, which can be individuals or organizations, involved in various business transactions.
         columns:
           - name: businessentityid
-            description: a
+            description: Primary key of the business entity table. Serves as a unique identifier for each entity, whether it is an individual or organization.
             tests:
               - unique
               - not_null
 
       - name: person
-        description: a
+        description: Table containing personal information about individuals, including their name, contact details, and demographic data.
         columns:
           - name: businessentityid
-            description: a
+            description: Primary key of the person table. This is a unique identifier linking each person to the corresponding entity in the business entity table.
             tests:
               - unique
               - not_null
 
       - name: employee
-        description: a
+        description: Contains information about employees, including identification details and personal data.
         columns:
           - name: businessentityid
-            description: a
+            description: Unique identifier for the employee within the company.
             tests:
               - unique
               - not_null
 
       - name: address
-        description: a
+        description: Stores information about addresses related to employees and customers.
         columns:
           - name: addressid
-            description: a
+            description: Unique identifier for the address.
             tests:
               - unique
               - not_null
 
       - name: stateprovince
-        description: a
+        description: Contains information about states and provinces where the company operates.
         columns:
           - name: stateprovinceid
-            description: a
+            description: Unique identifier for the state or province.
             tests:
               - unique
               - not_null
 
       - name: countryregion
-        description: a
+        description: Stores data about countries and regions for international operations support.
         columns:
           - name: countryregioncode
-            description: a
+            description: Unique code for the country or region.
             tests:
               - unique
               - not_null
 
       - name: store
-        description: a
+        description: Contains information about physical stores, including location and identification details.
         columns:
           - name: businessentityid
-            description: a
+            description: Unique identifier for the store within the company.
             tests:
               - unique
               - not_null
 
       - name: customer
-        description: a
+        description: Stores customer data, including identification and contact information.
         columns:
           - name: customerid
-            description: a
+            description: Unique identifier for the customer.
             tests:
               - unique
               - not_null
 
       - name: salesterritory
-        description: a
+        description: Contains information about sales territories used to track sales performance in different areas.
         columns:
           - name: territoryid
-            description: a
+            description: Unique identifier for the sales territory.
             tests:
               - unique
               - not_null
 
       - name: personcreditcard
-        description: a
+        description: Stores information about credit cards associated with individuals.
         columns:
           - name: businessentityid
-            description: a
+            description: Unique identifier for the individual associated with the credit card.
             tests:
               - unique
               - not_null
 
       - name: creditcard
-        description: a
+        description: Contains details about credit cards used in transactions.
         columns:
           - name: creditcardid
-            description: a
+            description: Unique identifier for the credit card.
             tests:
               - unique
               - not_null
 
       - name: salesorderheader
-        description: a
+        description: Stores the header information for sales orders, including general order details.
         columns:
           - name: salesorderid
-            description: a
+            description: Unique identifier for the sales order.
             tests:
               - unique
               - not_null
 
       - name: salesorderheadersalesreason
-        description: a
+        description: Links sales orders with sales reasons, explaining why the sales order was placed.
 
       - name: salesreason
-        description: a
+        description: Contains the reasons for sales orders, used to categorize and analyze sales.
         columns:
           - name: salesreasonid
-            description: a
+            description: Unique identifier for the sales reason.
             tests:
               - unique
               - not_null
 
       - name: salesorderdetail
-        description: a
+        description: Stores detailed line items for each sales order, including product and quantity information.
         columns:
           - name: salesorderdetailid
-            description: a
+            description: Unique identifier for the sales order detail record.
             tests:
               - unique
               - not_null
 
       - name: product
-        description: a
+        description: Contains information about products available for sale.
         columns:
           - name: productid
-            description: a
+            description: Unique identifier for the product.
             tests:
               - unique
               - not_null
 
       - name: productsubcategory
-        description: a
+        description: Stores information about product subcategories for organizing products.
         columns:
           - name: productsubcategoryid
-            description: a
+            description: Unique identifier for the product subcategory.
             tests:
               - unique
               - not_null
 
       - name: productcategory
-        description: a
+        description: Contains information about product categories used to classify products.
         columns:
           - name: productcategoryid
-            description: a
+            description: Unique identifier for the product category.
             tests:
               - unique
               - not_null
           
       - name: phonenumbertype
-        description: a
+        description: Defines types of phone numbers, such as mobile or home phone.
         columns:
           - name: phonenumbertypeid
-            description: a
+            description: Unique identifier for the phone number type.
             tests:
               - unique
               - not_null
 
       - name: emailaddress
-        description: a
+        description: Stores email addresses associated with individuals or entities.
         columns:
           - name: emailaddressid
-            description: a
+            description: Unique identifier for the email address.
             tests:
               - unique
               - not_null
 
       - name: personphone
-        description: a
+        description: Links individuals to their phone numbers.
         columns:
           - name: businessentityid
-            description: a
+            description: Unique identifier for the individual associated with the phone number.
             tests:
               - unique
               - not_null
-                  
-              

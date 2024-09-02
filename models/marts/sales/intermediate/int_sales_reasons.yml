@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: int_sales_reasons
+    description: This dimension includes detailed information about sales reasons, including their types and associations with sales orders.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - fk_sales_order
+            - fk_sales_reason
+    columns:
+      - name: sk_int_sales_reason
+        description: Surrogate key for the int_sales_reasons table.
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_sales_order
+        description: Foreign key linking to the sales order record. Represents the sales order associated with the sales reason.
+
+
+      - name: fk_sales_reason
+        description: Foreign key linking to the sales reason record. Represents the sales reason associated with the sales order.
+
+
+      - name: sales_reason_name
+        description: Name of the sales reason.
+
+
+      - name: sales_reason_type
+        description: Type of the sales reason (e.g., discount, promotion).

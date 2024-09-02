@@ -29,5 +29,12 @@ with
             on stg_costumers.fk_store = stg_stores.pk_store
     )
 
+    , create_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['pk_customer'])}} as sk_dim_customer
+            , *
+        from join_customers
+    )
+
 select *
-from join_customers
+from create_sk

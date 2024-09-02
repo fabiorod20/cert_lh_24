@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: This dimension includes detailed information about customers, their associated people, and the stores they are linked to.
+    columns:
+      - name: sk_dim_customer
+        description: Surrogate key for the dim_customers table.
+        tests:
+          - unique
+          - not_null
+
+      - name: pk_customer
+        description: Unique identifier for the customer.
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_person
+        description: Foreign key linking to the person record, representing the association between the customer and the individual.
+      
+      - name: fk_store
+        description: Foreign key linking to the store record, representing the association between the customer and the store.
+      
+      - name: fk_territory
+        description: Foreign key linking to the territory record, representing the association between the customer and the territory.
+
+      - name: customer_name
+        description: Name of the customer.
+
+      - name: customer_email
+        description: Email address of the customer.
+
+      - name: customer_phone_number
+        description: Phone number of the customer.
+
+      - name: customer_phone_number_type
+        description: Type of phone number (e.g., mobile, home) for the customer.
+
+      - name: customer_store
+        description: Name of the store associated with the customer.
